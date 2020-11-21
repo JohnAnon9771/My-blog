@@ -1,15 +1,17 @@
 import { AppProps } from 'next/app';
 
-import { ThemeProvider } from 'styled-components';
+import { Layout } from '../components';
+import { ThemeProvider } from '../components/ThemeProvider';
 
 import GlobalStyle from '../styles/global';
-import { theme } from '../styles/themes/light';
 
 export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
-    <ThemeProvider theme={theme}>
-      <Component {...pageProps} />
-      <GlobalStyle />
+    <ThemeProvider>
+      <Layout>
+        <Component {...pageProps} />
+        <GlobalStyle />
+      </Layout>
     </ThemeProvider>
   );
 }

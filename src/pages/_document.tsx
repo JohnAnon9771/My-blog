@@ -1,6 +1,15 @@
-import Document, { DocumentContext, DocumentInitialProps } from 'next/document';
+import Document, {
+  DocumentContext,
+  DocumentInitialProps,
+  Head,
+  Html,
+  Main,
+  NextScript,
+} from 'next/document';
 
 import { ServerStyleSheet } from 'styled-components';
+
+import { ScriptHydrationTheme } from '../lib/ScriptHydrationTheme';
 
 export default class MyDocument extends Document {
   static async getInitialProps(
@@ -29,5 +38,18 @@ export default class MyDocument extends Document {
     } finally {
       sheet.seal();
     }
+  }
+
+  render(): JSX.Element {
+    return (
+      <Html lang="pt-BR">
+        <Head />
+        <body>
+          <ScriptHydrationTheme />
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
   }
 }
