@@ -32,18 +32,6 @@ export function ThemeProvider({ children }: Props): JSX.Element {
     localStorage.setItem('color-mode', newValue);
 
     // 3. Update each color
-    // root.style.setProperty(
-    //   '--color-text',
-    //   newValue === 'light' ? Theme.light.text.primary : Theme.dark.text.primary,
-    // );
-    // root.style.setProperty(
-    //   '--color-background',
-    //   newValue === 'light' ? Theme.light.primary : Theme.dark.primary,
-    // );
-    // root.style.setProperty(
-    //   '--color-primary',
-    //   newValue === 'light' ? Theme.light.primary : Theme.dark.primary,
-    // );
     Object.entries(Theme[newValue]).forEach(([name, colorByTheme]) => {
       if (typeof colorByTheme !== 'object') {
         const cssVarName = `--color-${name}`;
