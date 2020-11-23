@@ -27,12 +27,12 @@ function injection() {
 
   root.style.setProperty('--initial-color-mode', colorMode);
 
-  Object.entries(theme[colorMode]).forEach(function ([name, colorByTheme]) {
+  Object.entries(theme[colorMode]).forEach(([name, colorByTheme]) => {
     if (typeof colorByTheme !== 'object') {
       const cssVarName = `--color-${name}`;
       root.style.setProperty(cssVarName, `${colorByTheme}`);
     } else {
-      Object.entries(colorByTheme).forEach(function ([name2, color]) {
+      Object.entries(colorByTheme).forEach(([name2, color]) => {
         const cssVarName = `--color-${name}-${name2}`;
         root.style.setProperty(cssVarName, color);
       });
