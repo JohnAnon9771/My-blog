@@ -1,74 +1,127 @@
-// import { motion } from 'framer-motion';
+import { useMemo } from 'react';
+import { animated, useSpring } from 'react-spring';
 
 import { Button } from './styles';
 
-interface Props {
+export const defaultProperties = {
+  dark: {
+    circle: {
+      r: '9',
+    },
+    mask: {
+      cx: '50%',
+      cy: '23%',
+    },
+    svg: {
+      transform: 'rotate(40deg)',
+    },
+    lines: {
+      opacity: '0',
+    },
+  },
+  light: {
+    circle: {
+      r: '5',
+    },
+    mask: {
+      cx: '100%',
+      cy: '0',
+    },
+    svg: {
+      transform: 'rotate(90deg)',
+    },
+    lines: {
+      opacity: '1',
+    },
+  },
+  springConfig: { mass: '4', tension: '250', friction: '35' },
+};
+
+type SVGProps = Omit<React.HTMLAttributes<HTMLOrSVGElement>, 'onChange'>;
+interface Props extends SVGProps {
   colorMode: string;
+  setColorMode: (newValue: string) => void;
+  style?: React.CSSProperties;
+  size?: number;
+  animationProperties?: typeof defaultProperties;
 }
 
-export default function ButtonDarkMode({ colorMode }: Props): JSX.Element {
+export default function ButtonDarkMode({
+  colorMode,
+  setColorMode,
+  animationProperties = defaultProperties,
+  style,
+  ...rest
+}: Props): JSX.Element {
+  const properties = useMemo(() => {
+    if (animationProperties !== defaultProperties) {
+      return Object.assign(defaultProperties, animationProperties);
+    }
+
+    return animationProperties;
+  }, [animationProperties]);
+
+  const { circle, svg, lines, mask } = properties[colorMode];
+
+  const svgContainerProps = useSpring({
+    ...svg,
+    config: animationProperties.springConfig,
+  });
+  const centerCircleProps = useSpring({
+    ...circle,
+    config: animationProperties.springConfig,
+  });
+  const maskedCircleProps = useSpring({
+    ...mask,
+    config: animationProperties.springConfig,
+  });
+  const linesProps = useSpring({
+    ...lines,
+    config: animationProperties.springConfig,
+  });
   return (
-    <Button
-      aria-label={`Activate ${colorMode} mode`}
-      title={`Activate ${colorMode} mode`}
+    <animated.svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={25}
+      height={25}
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      stroke="currentColor"
+      onClick={() =>
+        colorMode === 'dark' ? setColorMode('light') : setColorMode('dark')
+      }
+      style={{
+        cursor: 'pointer',
+        ...svgContainerProps,
+        ...style,
+        // fill: 'var(--color-text-variant)',
+        color: 'var(--color-text-variant)',
+      }}
+      {...rest}
     >
-      <svg width="18" height="18" viewBox="0 0 18 18" className="svg_darkmode">
-        <mask id="moon-mask-main-nav">
-          <rect
-            x="0"
-            y="0"
-            width="18"
-            height="18"
-            fill="var(--color-text-variant)"
-          ></rect>
-          <circle cx="25" cy="0" r="8" fill="black"></circle>
-        </mask>
-        <circle
-          cx="9"
-          cy="9"
-          fill="var(--color-text-variant)"
-          mask="url(#moon-mask-main-nav)"
-          r="5"
-        ></circle>
-        <g>
-          <circle
-            cx="17"
-            cy="9"
-            r="1.5"
-            fill="var(--color-text-variant)"
-          ></circle>
-          <circle
-            cx="13"
-            cy="15.928203230275509"
-            r="1.5"
-            fill="var(--color-text-variant)"
-          ></circle>
-          <circle
-            cx="5.000000000000002"
-            cy="15.92820323027551"
-            r="1.5"
-            fill="var(--color-text-variant)"
-          ></circle>
-          <circle
-            cx="1"
-            cy="9.000000000000002"
-            r="1.5"
-            fill="var(--color-text-variant)"
-          ></circle>
-          <circle
-            cx="4.9999999999999964"
-            cy="2.071796769724492"
-            r="1.5"
-            fill="var(--color-text-variant)"
-          ></circle>
-          <circle
-            cx="13"
-            cy="2.0717967697244912"
-            r="1.5"
-            fill="var(--color-text-variant)"
-          ></circle>
-        </g>
-      </svg>
-    </Button>
+      <mask id="myMask2">
+        <rect x="0" y="0" width="100%" height="100%" fill="white" />
+        <animated.circle style={maskedCircleProps} r="9" fill="black" />
+      </mask>
+
+      <animated.circle
+        cx="12"
+        cy="12"
+        style={{ ...centerCircleProps, fill: 'var(--color-text-variant)' }}
+        mask="url(#myMask2)"
+      />
+      <animated.g stroke="currentColor" style={linesProps}>
+        <line x1="12" y1="1" x2="12" y2="3" />
+        <line x1="12" y1="21" x2="12" y2="23" />
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+        <line x1="1" y1="12" x2="3" y2="12" />
+        <line x1="21" y1="12" x2="23" y2="12" />
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+      </animated.g>
+    </animated.svg>
   );
 }

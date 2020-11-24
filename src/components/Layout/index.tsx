@@ -34,17 +34,7 @@ export default function Layout(): JSX.Element {
               <li>Postagens</li>
             </ul>
           </nav>
-          <BtnDarkMode colorMode={colorMode} />
-          <label>
-            <input
-              type="checkbox"
-              checked={colorMode === 'dark'}
-              onChange={ev => {
-                setColorMode(ev.target.checked ? 'dark' : 'light');
-              }}
-            />
-            Dark
-          </label>
+          <BtnDarkMode colorMode={colorMode} setColorMode={setColorMode} />
         </Header>
         <Masker />
         <div className="nave_img">
