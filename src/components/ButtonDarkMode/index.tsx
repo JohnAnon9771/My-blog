@@ -1,8 +1,6 @@
 import { useMemo } from 'react';
 import { animated, useSpring } from 'react-spring';
 
-import { Button } from './styles';
-
 export const defaultProperties = {
   dark: {
     circle: {
@@ -37,7 +35,7 @@ export const defaultProperties = {
   springConfig: { mass: '4', tension: '250', friction: '35' },
 };
 
-type SVGProps = Omit<React.HTMLAttributes<HTMLOrSVGElement>, 'onChange'>;
+type SVGProps = Omit<React.HTMLAttributes<HTMLOrSVGElement>, 'setColorMode'>;
 interface Props extends SVGProps {
   colorMode: string;
   setColorMode: (newValue: string) => void;
@@ -79,6 +77,9 @@ export default function ButtonDarkMode({
     ...lines,
     config: animationProperties.springConfig,
   });
+
+  const isDark = colorMode === 'dark' ? true : false;
+
   return (
     <animated.svg
       xmlns="http://www.w3.org/2000/svg"
@@ -89,15 +90,12 @@ export default function ButtonDarkMode({
       strokeLinecap="round"
       strokeLinejoin="round"
       stroke="currentColor"
-      onClick={() =>
-        colorMode === 'dark' ? setColorMode('light') : setColorMode('dark')
-      }
+      onClick={() => (isDark ? setColorMode('light') : setColorMode('dark'))}
       style={{
         cursor: 'pointer',
         ...svgContainerProps,
         ...style,
-        // fill: 'var(--color-text-variant)',
-        color: 'var(--color-text-variant)',
+        color: isDark ? '#fff' : '#000',
       }}
       {...rest}
     >
