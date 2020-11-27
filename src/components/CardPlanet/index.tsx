@@ -1,7 +1,5 @@
 import Image from 'next/image';
-import { darken } from 'polished';
 
-import { Theme } from '../../styles/Theme';
 import { Container, Content } from './styles';
 
 interface Props {
