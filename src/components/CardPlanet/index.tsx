@@ -5,26 +5,28 @@ import { Theme } from '../../styles/Theme';
 import { Container, Content } from './styles';
 
 interface Props {
-  src: string;
-  planet: string;
-  colorMode: string;
+  title: string;
+  image: string;
+  description: string;
 }
 
 export default function CardPlanet({
-  src,
-  planet,
-  colorMode,
+  title,
+  image,
+  description,
 }: Props): JSX.Element {
-  const isDark = colorMode === 'dark' ? true : false;
   return (
-    <Container
-      planet={planet}
-      style={{
-        background: isDark ? darken(0.2, Theme.dark[planet]) : '#FFFF',
-      }}
-    >
-      <Image src={src} width="50px" height="50px" />
-      <Content></Content>
+    <Container>
+      <Content>
+        <Image
+          className="card_planets"
+          src={image}
+          width="56px"
+          height="56px"
+        />
+        <h3>{title}</h3>
+        <p>{description}</p>
+      </Content>
     </Container>
   );
 }

@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
-export const Container = styled.div<{ planet: string }>`
+export const Container = styled.div`
   width: 209px;
   height: 282px;
-  box-shadow: 4px 2px 4px 2px var(--color-${props => props.planet}),
-    0px 4px 4px var(--color-${props => props.planet});
-  border-radius: 15px;
 
-  break-inside: avoid;
+  border-radius: 15px;
 `;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;

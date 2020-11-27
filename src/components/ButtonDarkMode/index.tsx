@@ -83,8 +83,8 @@ export default function ButtonDarkMode({
   return (
     <animated.svg
       xmlns="http://www.w3.org/2000/svg"
-      width={25}
-      height={25}
+      width={22}
+      height={22}
       viewBox="0 0 24 24"
       strokeWidth="2"
       strokeLinecap="round"
@@ -95,7 +95,7 @@ export default function ButtonDarkMode({
         cursor: 'pointer',
         ...svgContainerProps,
         ...style,
-        color: isDark ? '#fff' : '#000',
+        color: 'var(--color-text-variant)',
       }}
       {...rest}
     >

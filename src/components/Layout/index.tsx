@@ -1,7 +1,10 @@
 import { useContext } from 'react';
+import { AiFillGithub } from 'react-icons/ai';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
+import constantPlanetData from '../../constants/planets';
 import BtnDarkMode from '../ButtonDarkMode';
 import CardPlanet from '../CardPlanet';
 import Masker from '../Masker';
@@ -24,22 +27,38 @@ export default function Layout(): JSX.Element {
       <Container>
         <div className="spacer" />
         <Header>
-          <div className="brand">
-            <span>John</span>
-            <span>9771</span>
+          <div className="header_right">
+            <div className="brand">
+              <span>John</span>
+              <span>9771</span>
+            </div>
+            <nav>
+              <ul>
+                <li>
+                  <Link href="/posts/newest">
+                    <a>Recentes</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/posts">
+                    <a>Postagens</a>
+                  </Link>
+                </li>
+              </ul>
+            </nav>
           </div>
-          <nav>
-            <ul>
-              <li>Recentes</li>
-              <li>Postagens</li>
-            </ul>
-          </nav>
-          <BtnDarkMode colorMode={colorMode} setColorMode={setColorMode} />
+          <div className="header_left">
+            <BtnDarkMode colorMode={colorMode} setColorMode={setColorMode} />
+
+            <a href="https://github.com/JohnAnon9771">
+              <AiFillGithub size={22} color="var(--color-text-variant)" />
+            </a>
+          </div>
         </Header>
         <Masker />
         <div className="nave_img">
           <Image
-            src={colorMode === 'dark' ? '/rocket.png' : '/spaceman.png'}
+            src={colorMode === 'dark' ? '/rocket.svg' : '/spaceman.svg'}
             height="250px"
             width="250px"
           />
@@ -48,27 +67,15 @@ export default function Layout(): JSX.Element {
       <div className="wrapper_main">
         <main>
           <section className="planets">
-            <div className="grid_planets">
+            <h3>CONTÉUDO</h3>
+            {constantPlanetData.map(planet => (
               <CardPlanet
-                src="/uranus.png"
-                planet="uranus"
-                colorMode={colorMode}
+                key={planet.id}
+                title={planet.title}
+                description={planet.description}
+                image={planet.image}
               />
-              <CardPlanet
-                src="/earth.png"
-                planet="earth"
-                colorMode={colorMode}
-              />
-              <CardPlanet src="/mars.png" planet="mars" colorMode={colorMode} />
-              <CardPlanet src="/sun.png" planet="sun" colorMode={colorMode} />
-              <CardPlanet
-                src="/neptune.png"
-                planet="neptune"
-                colorMode={colorMode}
-              />
-
-              <CardPlanet src="/moon.png" planet="moon" colorMode={colorMode} />
-            </div>
+            ))}
           </section>
           <section className="top_categories">
             <h3>PRINCIPAIS CATEGORIAS</h3>
