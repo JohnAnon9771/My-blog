@@ -24,6 +24,7 @@ export default createGlobalStyle`
   }
 
   :root {
+    font-size: 16px;
     --font-size-title: 1rem;
     --font-size-subtitle: 0.87rem;
     --font-size-lxtitle: 1.125rem;
