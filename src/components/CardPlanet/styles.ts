@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   color: var(--color-text-variant);
-  /* background: red; */
   margin-top: 40px;
   margin-bottom: 40px;
 
@@ -20,6 +19,7 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: baseline;
+    line-height: 10px;
 
     font-weight: 600;
   }

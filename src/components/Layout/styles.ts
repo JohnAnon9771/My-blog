@@ -40,6 +40,10 @@ export const Wrapper = styled.div`
       display: flex;
       flex-direction: column;
       grid-area: planets;
+
+      a {
+        text-decoration: none;
+      }
     }
 
     .top_categories {

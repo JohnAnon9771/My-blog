@@ -23,7 +23,7 @@ export function useBoop({
     tension: 300,
     friction: 10,
   },
-}: Props): any {
+}: Props): [unknown, () => void] {
   const [isBooped, setIsBooped] = useState(false);
   const style = useSpring({
     display: 'inline-block',

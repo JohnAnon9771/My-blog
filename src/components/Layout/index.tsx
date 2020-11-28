@@ -74,6 +74,7 @@ export default function Layout(): JSX.Element {
                 title={planet.title}
                 description={planet.description}
                 image={planet.image}
+                categorie={planet.categorie}
               />
             ))}
           </section>
