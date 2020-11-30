@@ -1,8 +1,8 @@
-import { IoIosArrowForward } from 'react-icons/io';
-import { animated } from 'react-spring';
-
 import Image from 'next/image';
 import Link from 'next/link';
+
+import { IoIosArrowForward } from 'react-icons/io';
+import { animated } from 'react-spring';
 
 import { useBoop } from '../../hooks/useBoop';
 import { Container, Content } from './styles';
