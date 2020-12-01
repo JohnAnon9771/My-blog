@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { animated } from 'react-spring';
 
-import { useBoop } from '../../hooks/useBoop';
+import { useBoop } from '@hooks/useBoop';
 
 interface Props {
   children: ReactNode;

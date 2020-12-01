@@ -1,7 +1,6 @@
 import { ReactNode, useContext } from 'react';
 
-import Header from '../Header';
-import { ThemeContext } from '../ThemeProvider';
+import { ThemeContext, Header } from '@components';
 
 interface Props {
   children: ReactNode;

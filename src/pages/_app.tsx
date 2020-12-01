@@ -1,8 +1,8 @@
 import { AppProps } from 'next/app';
 
-import { ThemeProvider } from '../components';
+import GlobalStyle from '@styles/global';
 
-import GlobalStyle from '../styles/global';
+import { ThemeProvider } from '@components';
 
 export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (

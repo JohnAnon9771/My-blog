@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
 
-import { Theme } from '../../styles/Theme';
+import { Theme } from '@styles/Theme';
 
 interface ThemeContext {
   colorMode: string;

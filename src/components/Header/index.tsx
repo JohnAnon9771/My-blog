@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import { AiFillGithub } from 'react-icons/ai';
 
-import ButtonDarkMode from '../ButtonDarkMode';
+import ButtonDarkMode from './ButtonDarkMode';
 import { Container } from './styles';
 
 interface Props {

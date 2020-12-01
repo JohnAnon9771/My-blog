@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import LayoutCategorie from '../../components/LayoutCategories';
+import Layout from '@components/Layouts/Categorie';
 
 interface Props {
   posts: {
@@ -19,11 +19,11 @@ export default function PostsPerPlanet({ posts }: Props): JSX.Element {
   }
 
   return (
-    <LayoutCategorie>
+    <Layout>
       {posts.map(post => (
         <h1 key={post.id}>{post.title}</h1>
       ))}
-    </LayoutCategorie>
+    </Layout>
   );
 }
 

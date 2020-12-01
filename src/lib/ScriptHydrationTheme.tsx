@@ -1,4 +1,4 @@
-import { Theme } from '../styles/Theme';
+import { Theme } from '@styles/Theme';
 
 function injection() {
   const theme = 'substitutedForTheme';

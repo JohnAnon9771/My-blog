@@ -2,10 +2,10 @@ import Image from 'next/image';
 
 import { useContext } from 'react';
 
-import { CardPlanet, Header, Masker, ThemeContext } from '../components';
+import constantPlanetData from '@constants/planets';
+import { Container, Wrapper } from '@styles/pages/Home';
 
-import constantPlanetData from '../constants/planets';
-import { Container, Wrapper } from '../styles/pages/Home';
+import { CardPlanet, Header, Masker, ThemeContext } from '@components';
 
 export default function Home(): JSX.Element {
   const { colorMode, setColorMode } = useContext(ThemeContext);
