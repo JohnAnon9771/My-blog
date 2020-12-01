@@ -59,6 +59,7 @@ export default function ButtonDarkMode({
     return animationProperties;
   }, [animationProperties]);
 
+  console.log(properties[colorMode]);
   const { circle, svg, lines, mask } = properties[colorMode];
 
   const svgContainerProps = useSpring({

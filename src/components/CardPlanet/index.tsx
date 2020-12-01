@@ -22,7 +22,7 @@ export default function CardPlanet({
 }: Props): JSX.Element {
   const [style, trigger] = useBoop({ x: 5 });
   return (
-    <Link href={`/posts/${categorie}`}>
+    <Link href={`/categories/${categorie}`}>
       <a>
         <Container onMouseEnter={trigger}>
           <Content>
