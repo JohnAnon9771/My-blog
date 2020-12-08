@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useContext } from 'react';
 
 import constantPlanetData from '@constants/planets';
-import { Container, Wrapper } from '@styles/pages/Home';
+import { Container, Main, Wrapper } from '@styles/pages/Home';
 
 import { CardPlanet, Masker, ThemeContext } from '@components';
 const Header = dynamic(() => import('@components/Header'), { ssr: false });
@@ -27,7 +27,7 @@ export default function Home(): JSX.Element {
         </div>
       </Container>
       <div className="wrapper_main">
-        <main>
+        <Main>
           <section className="planets">
             <h3>CONTÉUDO</h3>
             {constantPlanetData.map(planet => (
@@ -46,7 +46,7 @@ export default function Home(): JSX.Element {
           <section className="content_popular">
             <h3>CONTÉUDO POPULAR</h3>
           </section>
-        </main>
+        </Main>
       </div>
     </Wrapper>
   );

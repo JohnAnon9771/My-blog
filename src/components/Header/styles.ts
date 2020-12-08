@@ -40,7 +40,7 @@ export const Container = styled.div`
         li {
           a {
             color: var(--color-text-variant);
-            font-size: var(--font-size-subtitle);
+            font-size: 0.875rem;
             font-weight: 500;
             margin: 15px;
             text-decoration: none;
@@ -60,7 +60,7 @@ export const Container = styled.div`
       margin-right: 35px;
 
       font-weight: 600;
-      font-size: 24px;
+      font-size: 1.5rem;
       font-family: Roboto, sans-serif;
       text-decoration: none;
     }

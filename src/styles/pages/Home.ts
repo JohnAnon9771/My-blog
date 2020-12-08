@@ -16,60 +16,6 @@ export const Wrapper = styled.div`
     background-color: var(--color-variant);
     transition: background-color 350ms ease 0s;
   }
-
-  main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    padding-top: 64px;
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-
-  @media only screen and (min-width: 690px) {
-    main {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      grid-template-rows: auto 1fr;
-      grid-template-areas:
-        'planets categories'
-        'planets popular';
-      gap: 64px 96px;
-      position: relative;
-
-      width: 100%;
-      max-width: 1100px;
-
-      margin-left: auto;
-      margin-right: auto;
-
-      padding-top: 64px;
-      padding-left: 32px;
-      padding-right: 32px;
-
-      z-index: 2;
-
-      .planets {
-        display: flex;
-        flex-direction: column;
-        grid-area: planets;
-
-        a {
-          text-decoration: none;
-        }
-      }
-
-      .top_categories {
-        grid-area: categories;
-      }
-
-      .content_popular {
-        grid-area: popular;
-      }
-    }
-  }
 `;
 
 export const Container = styled.div`
@@ -86,5 +32,55 @@ export const Container = styled.div`
   .spacer {
     width: 48px;
     height: 48px;
+  }
+`;
+
+export const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding-top: 64px;
+  padding-left: 32px;
+  padding-right: 32px;
+
+  @media only screen and (min-width: 690px) {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'planets categories'
+      'planets popular';
+    gap: 64px 96px;
+    position: relative;
+
+    width: 100%;
+    max-width: 1100px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-top: 64px;
+    padding-left: 32px;
+    padding-right: 32px;
+
+    z-index: 2;
+
+    .planets {
+      display: flex;
+      flex-direction: column;
+      grid-area: planets;
+    }
+
+    .top_categories {
+      grid-area: categories;
+    }
+
+    .content_popular {
+      position: absolute;
+      top: 0;
+      grid-area: popular;
+    }
   }
 `;
