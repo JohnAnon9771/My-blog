@@ -13,6 +13,7 @@ export default createGlobalStyle`
   body {
     font: 400 14px Roboto, sans-serif;
     color: var(--color-text-primary);
+    transition: color 350ms ease 0s;
   }
 
   input, button, textarea {

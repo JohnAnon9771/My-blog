@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 
 import { useContext } from 'react';
@@ -5,14 +6,11 @@ import { useContext } from 'react';
 import constantPlanetData from '@constants/planets';
 import { Container, Wrapper } from '@styles/pages/Home';
 
-import { CardPlanet, Header, Masker, ThemeContext } from '@components';
+import { CardPlanet, Masker, ThemeContext } from '@components';
+const Header = dynamic(() => import('@components/Header'), { ssr: false });
 
 export default function Home(): JSX.Element {
   const { colorMode, setColorMode } = useContext(ThemeContext);
-
-  if (!colorMode) {
-    return null;
-  }
 
   return (
     <Wrapper>

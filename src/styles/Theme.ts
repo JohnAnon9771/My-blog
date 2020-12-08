@@ -3,6 +3,7 @@ export const Theme = {
     primary: '#A9CEF4',
     categories: '#A9CEF4',
     variant: '#FFFFFF',
+    header: '#dfebf6',
 
     text: {
       primary: '#4433FF',
@@ -14,6 +15,7 @@ export const Theme = {
     primary: '#0E141B',
     categories: '#2A4555',
     variant: '#0E141B',
+    header: '#182635',
 
     text: {
       primary: '#FF0A78',

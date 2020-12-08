@@ -17,10 +17,14 @@ export default function Header({
   return (
     <Container>
       <div className="header_right">
-        <div className="brand">
-          <span>John</span>
-          <span>9771</span>
-        </div>
+        <Link href="/">
+          <a>
+            <div className="brand">
+              <span>John</span>
+              <span>9771</span>
+            </div>
+          </a>
+        </Link>
         <nav>
           <ul>
             <li>

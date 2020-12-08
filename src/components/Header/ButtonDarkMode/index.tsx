@@ -1,7 +1,41 @@
 import { useMemo } from 'react';
 import { animated, useSpring } from 'react-spring';
 
-export const defaultProperties = {
+interface TypesProperties {
+  dark: {
+    circle: {
+      r: string;
+    };
+    mask: {
+      cx: string;
+      cy: string;
+    };
+    svg: {
+      transform: string;
+    };
+    lines: {
+      opacity: string;
+    };
+  };
+  light: {
+    circle: {
+      r: string;
+    };
+    mask: {
+      cx: string;
+      cy: string;
+    };
+    svg: {
+      transform: string;
+    };
+    lines: {
+      opacity: string;
+    };
+  };
+  springConfig: { mass: string; tension: string; friction: string };
+}
+
+export const defaultProperties: TypesProperties = {
   dark: {
     circle: {
       r: '9',
@@ -59,7 +93,6 @@ export default function ButtonDarkMode({
     return animationProperties;
   }, [animationProperties]);
 
-  console.log(properties[colorMode]);
   const { circle, svg, lines, mask } = properties[colorMode];
 
   const svgContainerProps = useSpring({
@@ -100,7 +133,7 @@ export default function ButtonDarkMode({
       }}
       {...rest}
     >
-      <mask id="myMask2">
+      <mask id="moon-mask">
         <rect x="0" y="0" width="100%" height="100%" fill="white" />
         <animated.circle style={maskedCircleProps} r="9" fill="black" />
       </mask>
@@ -108,8 +141,10 @@ export default function ButtonDarkMode({
       <animated.circle
         cx="12"
         cy="12"
-        style={{ ...centerCircleProps, fill: 'var(--color-text-variant)' }}
-        mask="url(#myMask2)"
+        fill="var(--color-text-variant)"
+        mask="url(#moon-mask)"
+        style={{ ...centerCircleProps }}
+        r={centerCircleProps.r}
       />
       <animated.g stroke="currentColor" style={linesProps}>
         <line x1="12" y1="1" x2="12" y2="3" />

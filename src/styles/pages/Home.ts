@@ -3,12 +3,13 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   position: relative;
 
-  background: linear-gradient(
+  background-image: linear-gradient(
     180deg,
     var(--color-primary),
     55.73%,
     var(--color-categories) 100%
   );
+  transition: background-image 350ms ease 0s;
 
   .wrapper_main {
     height: 100%;
@@ -17,45 +18,56 @@ export const Wrapper = styled.div`
   }
 
   main {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto 1fr;
-    grid-template-areas:
-      'planets categories'
-      'planets popular';
-    gap: 64px 96px;
-    position: relative;
-
-    width: 100%;
-    max-width: 1100px;
-
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     padding-top: 64px;
     padding-left: 32px;
     padding-right: 32px;
+  }
 
-    z-index: 2;
+  @media only screen and (min-width: 690px) {
+    main {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: auto 1fr;
+      grid-template-areas:
+        'planets categories'
+        'planets popular';
+      gap: 64px 96px;
+      position: relative;
 
-    .planets {
-      display: flex;
-      flex-direction: column;
-      grid-area: planets;
+      width: 100%;
+      max-width: 1100px;
 
-      a {
-        text-decoration: none;
+      margin-left: auto;
+      margin-right: auto;
+
+      padding-top: 64px;
+      padding-left: 32px;
+      padding-right: 32px;
+
+      z-index: 2;
+
+      .planets {
+        display: flex;
+        flex-direction: column;
+        grid-area: planets;
+
+        a {
+          text-decoration: none;
+        }
       }
-    }
 
-    .top_categories {
-      grid-area: categories;
-      /* font-size: var(--font-size-title); */
-    }
+      .top_categories {
+        grid-area: categories;
+      }
 
-    .content_popular {
-      grid-area: popular;
-      /* font-size: var(--font-size-title); */
+      .content_popular {
+        grid-area: popular;
+      }
     }
   }
 `;
@@ -75,12 +87,4 @@ export const Container = styled.div`
     width: 48px;
     height: 48px;
   }
-`;
-
-export const Icons = styled.div`
-  position: absolute;
-  background-color: red;
-  top: auto;
-  bottom: auto;
-  right: 0;
 `;

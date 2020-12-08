@@ -7,9 +7,9 @@ import Document, {
   NextScript,
 } from 'next/document';
 
-import { ServerStyleSheet } from 'styled-components';
+import { ScriptHydrationTheme } from '@lib/ScriptHydrationTheme';
 
-import { ScriptHydrationTheme } from '../lib/ScriptHydrationTheme';
+import { ServerStyleSheet } from 'styled-components';
 
 export default class MyDocument extends Document {
   static async getInitialProps(

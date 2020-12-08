@@ -14,10 +14,6 @@ interface Props {
 }
 
 export default function PostsPerPlanet({ posts }: Props): JSX.Element {
-  if (!posts) {
-    return null;
-  }
-
   return (
     <Layout>
       {posts.map(post => (

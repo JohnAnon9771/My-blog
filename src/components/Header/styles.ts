@@ -25,6 +25,11 @@ export const Container = styled.div`
     display: flex;
     align-items: baseline;
 
+    a {
+      text-decoration: none;
+      color: var(--color-text-primary);
+    }
+
     nav {
       display: flex;
 
@@ -67,7 +72,5 @@ export const Container = styled.div`
     align-items: baseline;
 
     width: 100px;
-    margin-top: auto;
-    margin-bottom: auto;
   }
 `;

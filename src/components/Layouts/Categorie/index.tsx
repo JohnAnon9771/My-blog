@@ -1,6 +1,11 @@
+import dynamic from 'next/dynamic';
+
 import { ReactNode, useContext } from 'react';
 
-import { ThemeContext, Header } from '@components';
+import { ThemeContext } from '@components';
+
+import { Container, Wrapper } from './styles';
+const Header = dynamic(() => import('@components/Header'), { ssr: false });
 
 interface Props {
   children: ReactNode;
@@ -9,14 +14,12 @@ interface Props {
 export default function LayoutCategorie({ children }: Props): JSX.Element {
   const { colorMode, setColorMode } = useContext(ThemeContext);
 
-  if (!colorMode) {
-    return null;
-  }
-
   return (
-    <div>
-      <Header colorMode={colorMode} setColorMode={setColorMode} />
+    <Wrapper>
+      <Container>
+        <Header colorMode={colorMode} setColorMode={setColorMode} />
+      </Container>
       <main>{children}</main>
-    </div>
+    </Wrapper>
   );
 }
