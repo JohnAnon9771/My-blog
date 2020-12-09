@@ -16,7 +16,7 @@ export default function Header({
 }: Props): JSX.Element {
   return (
     <Container>
-      <div className="header_right">
+      <div className="header-right">
         <Link href="/">
           <a>
             <div className="brand">
@@ -37,10 +37,15 @@ export default function Header({
                 <a>Postagens</a>
               </Link>
             </li>
+            <li>
+              <Link href="/about">
+                <a>Sobre</a>
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>
-      <div className="header_left">
+      <div className="header-left">
         <ButtonDarkMode colorMode={colorMode} setColorMode={setColorMode} />
 
         <a href="https://github.com/JohnAnon9771">

@@ -1,25 +1,24 @@
-import dynamic from 'next/dynamic';
+import { ReactNode } from 'react';
 
-import { ReactNode, useContext } from 'react';
+import Section from '@components/Section';
 
-import { ThemeContext } from '@components';
-
-import { Container, Wrapper } from './styles';
-const Header = dynamic(() => import('@components/Header'), { ssr: false });
+import { Wrapper } from './styles';
 
 interface Props {
+  title: string;
   children: ReactNode;
 }
 
-export default function LayoutCategorie({ children }: Props): JSX.Element {
-  const { colorMode, setColorMode } = useContext(ThemeContext);
-
+export default function LayoutCategorie({
+  children,
+  title,
+}: Props): JSX.Element {
   return (
     <Wrapper>
-      <Container>
-        <Header colorMode={colorMode} setColorMode={setColorMode} />
-      </Container>
-      <main>{children}</main>
+      <Section className="header">
+        <h1>{title}</h1>
+      </Section>
+      <Section>{children}</Section>
     </Wrapper>
   );
 }

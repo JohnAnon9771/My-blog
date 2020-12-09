@@ -21,7 +21,7 @@ export const Container = styled.div`
   top: 0px;
   z-index: 2;
 
-  .header_right {
+  .header-right {
     display: flex;
     align-items: baseline;
 
@@ -66,11 +66,9 @@ export const Container = styled.div`
     }
   }
 
-  .header_left {
-    display: flex;
-    justify-content: space-around;
-    align-items: baseline;
-
-    width: 100px;
+  .header-left {
+    a {
+      margin-left: 2rem;
+    }
   }
 `;

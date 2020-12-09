@@ -1,4 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { useRouter } from 'next/dist/client/router';
+
+import { capitalize } from '@lib/capitalize';
 
 import Layout from '@components/Layouts/Categorie';
 
@@ -13,11 +16,15 @@ interface Props {
   }[];
 }
 
-export default function PostsPerPlanet({ posts }: Props): JSX.Element {
+export default function Posts({ posts }: Props): JSX.Element {
+  const { query } = useRouter();
   return (
-    <Layout>
+    <Layout title={capitalize(query.planet)}>
       {posts.map(post => (
-        <h1 key={post.id}>{post.title}</h1>
+        <>
+          <p key={post.id}>{post.title}</p>
+          <p>{capitalize(query.planet)}</p>
+        </>
       ))}
     </Layout>
   );
