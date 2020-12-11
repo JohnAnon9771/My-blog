@@ -2,21 +2,11 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/dist/client/router';
 
 import { capitalize } from '@lib/capitalize';
+import { DataFetch, Posts } from 'types/pages/categories';
 
 import Layout from '@components/Layouts/Categorie';
 
-interface Props {
-  posts: {
-    id: number;
-    title: string;
-    subtitle: string;
-    content: string;
-    category: number;
-    likes: number;
-  }[];
-}
-
-export default function Posts({ posts }: Props): JSX.Element {
+export default function Posts({ posts }: Posts): JSX.Element {
   const { query } = useRouter();
   return (
     <Layout title={capitalize(query.planet)}>
@@ -28,7 +18,7 @@ export default function Posts({ posts }: Props): JSX.Element {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const data = await (
+  const data: DataFetch[] = await (
     await fetch('https://johnanon-blog-cms.herokuapp.com/categories')
   ).json();
   const paths = data.map(category => {
@@ -44,7 +34,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async context => {
-  const data = await (
+  const data: DataFetch[] = await (
     await fetch(
       `https://johnanon-blog-cms.herokuapp.com/categories?_where[name]=${context.params.planet}`,
     )
