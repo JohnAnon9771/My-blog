@@ -21,10 +21,7 @@ export default function Posts({ posts }: Props): JSX.Element {
   return (
     <Layout title={capitalize(query.planet)}>
       {posts.map(post => (
-        <>
-          <p key={post.id}>{post.title}</p>
-          <p>{capitalize(query.planet)}</p>
-        </>
+        <p key={post.id}>{post.title}</p>
       ))}
     </Layout>
   );

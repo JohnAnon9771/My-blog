@@ -13,7 +13,7 @@ interface Props {
   children: ReactNode;
 }
 
-export function ThemeProvider({ children }: Props): JSX.Element {
+export default function ThemeProvider({ children }: Props): JSX.Element {
   const [colorMode, rawSetColorMode] = useState('');
 
   useEffect(() => {

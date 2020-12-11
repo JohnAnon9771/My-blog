@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import Section from '@components/Section';
+import { Section } from '@components';
 
 import { Wrapper } from './styles';
 
@@ -10,8 +10,8 @@ interface Props {
 }
 
 export default function LayoutCategorie({
-  children,
   title,
+  children,
 }: Props): JSX.Element {
   return (
     <Wrapper>
