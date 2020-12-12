@@ -5,15 +5,7 @@ import { AiFillGithub } from 'react-icons/ai';
 import ButtonDarkMode from './ButtonDarkMode';
 import { Container } from './styles';
 
-interface Props {
-  colorMode: string;
-  setColorMode: (newValue: string) => void;
-}
-
-export default function Header({
-  colorMode,
-  setColorMode,
-}: Props): JSX.Element {
+export default function Header(): JSX.Element {
   return (
     <Container>
       <div className="header-right">
@@ -46,7 +38,7 @@ export default function Header({
         </nav>
       </div>
       <div className="header-left">
-        <ButtonDarkMode colorMode={colorMode} setColorMode={setColorMode} />
+        <ButtonDarkMode />
 
         <a href="https://github.com/JohnAnon9771">
           <AiFillGithub size={22} color="var(--color-text-variant)" />

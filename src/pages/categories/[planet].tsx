@@ -1,12 +1,12 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { useRouter } from 'next/dist/client/router';
+import { useRouter } from 'next/router';
 
 import { capitalize } from '@lib/capitalize';
-import { DataFetch, Posts } from 'types/pages/categories';
+import { DataFetch, Posts as Props } from 'types/pages/categories';
 
 import Layout from '@components/Layouts/Categorie';
 
-export default function Posts({ posts }: Posts): JSX.Element {
+export default function Posts({ posts }: Props): JSX.Element {
   const { query } = useRouter();
   return (
     <Layout title={capitalize(query.planet)}>

@@ -1,41 +1,11 @@
-import { useMemo } from 'react';
+import { useContext, useMemo } from 'react';
 import { animated, useSpring } from 'react-spring';
 
-interface TypesProperties {
-  dark: {
-    circle: {
-      r: string;
-    };
-    mask: {
-      cx: string;
-      cy: string;
-    };
-    svg: {
-      transform: string;
-    };
-    lines: {
-      opacity: string;
-    };
-  };
-  light: {
-    circle: {
-      r: string;
-    };
-    mask: {
-      cx: string;
-      cy: string;
-    };
-    svg: {
-      transform: string;
-    };
-    lines: {
-      opacity: string;
-    };
-  };
-  springConfig: { mass: string; tension: string; friction: string };
-}
+import { ThemeContext } from '@components/ThemeProvider';
 
-export const defaultProperties: TypesProperties = {
+import { TypesProperties, ButtonDarkModeProps as Props } from './types';
+
+const defaultProperties: TypesProperties = {
   dark: {
     circle: {
       r: '9',
@@ -69,22 +39,13 @@ export const defaultProperties: TypesProperties = {
   springConfig: { mass: '4', tension: '250', friction: '35' },
 };
 
-type SVGProps = Omit<React.HTMLAttributes<HTMLOrSVGElement>, 'setColorMode'>;
-interface Props extends SVGProps {
-  colorMode: string;
-  setColorMode: (newValue: string) => void;
-  style?: React.CSSProperties;
-  size?: number;
-  animationProperties?: typeof defaultProperties;
-}
-
 export default function ButtonDarkMode({
-  colorMode,
-  setColorMode,
   animationProperties = defaultProperties,
   style,
   ...rest
 }: Props): JSX.Element {
+  const { colorMode, setColorMode } = useContext(ThemeContext);
+
   const properties = useMemo(() => {
     if (animationProperties !== defaultProperties) {
       return Object.assign(defaultProperties, animationProperties);
@@ -143,9 +104,9 @@ export default function ButtonDarkMode({
         cy="12"
         fill="var(--color-text-variant)"
         mask="url(#moon-mask)"
-        style={{ ...centerCircleProps }}
-        r={centerCircleProps.r}
+        style={centerCircleProps}
       />
+
       <animated.g stroke="currentColor" style={linesProps}>
         <line x1="12" y1="1" x2="12" y2="3" />
         <line x1="12" y1="21" x2="12" y2="23" />
