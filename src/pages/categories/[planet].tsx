@@ -1,18 +1,17 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { useRouter } from 'next/router';
 
-import { capitalize } from '@lib/capitalize';
 import { DataFetch, Posts as Props } from 'types/pages/categories';
 
 import Layout from '@components/Layouts/Categorie';
 
 export default function Posts({ posts }: Props): JSX.Element {
-  const { query } = useRouter();
   return (
-    <Layout title={capitalize(query.planet)}>
-      {posts.map(post => (
-        <p key={post.id}>{post.title}</p>
-      ))}
+    <Layout>
+      <main>
+        {posts.map(post => (
+          <p key={post.id}>{post.title}</p>
+        ))}
+      </main>
     </Layout>
   );
 }

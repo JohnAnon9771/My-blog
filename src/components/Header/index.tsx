@@ -25,11 +25,6 @@ export default function Header(): JSX.Element {
               </Link>
             </li>
             <li>
-              <Link href="/posts">
-                <a>Postagens</a>
-              </Link>
-            </li>
-            <li>
               <Link href="/about">
                 <a>Sobre</a>
               </Link>

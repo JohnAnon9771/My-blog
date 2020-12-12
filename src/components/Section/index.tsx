@@ -6,7 +6,7 @@ import { Container, HeaderWrapper, Content } from './styles';
 const Header = dynamic(() => import('@components/Header'), { ssr: false });
 
 interface Props {
-  className?: 'header';
+  className?: string;
   children?: ReactNode;
 }
 
@@ -18,7 +18,7 @@ export default function Section({ className, children }: Props): JSX.Element {
           <Header />
         </div>
       </HeaderWrapper>
-      <Content>{children}</Content>
+      <Content className={`content-${className}`}>{children}</Content>
     </Container>
   );
 }
