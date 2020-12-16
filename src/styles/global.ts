@@ -19,11 +19,11 @@ export default createGlobalStyle`
       width: 0.4rem;
     }
 
-    &::-webkit-scrollbar-track{
+    &::-webkit-scrollbar-track {
       background-color: var(--color-primary);
     }
 
-    &::-webkit-scrollbar-thumb{
+    &::-webkit-scrollbar-thumb {
       background-color: var(--color-text-primary);
       border-radius: 1rem;
     }
@@ -39,9 +39,5 @@ export default createGlobalStyle`
 
   button {
     cursor: pointer;
-  }
-
-  :root {
-    font-size: 16px;
   }
 `;

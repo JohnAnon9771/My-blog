@@ -10,13 +10,12 @@ import { CardPlanet, Masker, ThemeContext } from '@components';
 const Header = dynamic(() => import('@components/Header'), { ssr: false });
 
 export default function Home(): JSX.Element {
-  const { colorMode, setColorMode } = useContext(ThemeContext);
-
+  const { colorMode } = useContext(ThemeContext);
   return (
     <Wrapper>
       <Container>
         <div className="spacer" />
-        <Header colorMode={colorMode} setColorMode={setColorMode} />
+        <Header />
         <Masker />
         <div className="nave_img">
           <Image
