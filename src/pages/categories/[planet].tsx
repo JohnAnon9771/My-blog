@@ -1,15 +1,26 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
-import { DataFetch, Posts as Props } from 'types/pages/categories';
+import { getCategories, getPostsByCategorie } from '@lib/api';
 
 import Layout from '@components/Layouts/Categorie';
 
-export default function Posts({ posts }: Props): JSX.Element {
+export default function Posts({ posts }): JSX.Element {
+  const { asPath } = useRouter();
   return (
     <Layout>
       <main>
         {posts.map(post => (
-          <p key={post.id}>{post.title}</p>
+          <Link
+            href={`${asPath}/posts/${post.data.title}`}
+            key={post.data.title}
+          >
+            <a>
+              <h3>{post.data.title}</h3>
+              <p>{post.data.description}</p>
+            </a>
+          </Link>
         ))}
       </main>
     </Layout>
@@ -17,12 +28,10 @@ export default function Posts({ posts }: Props): JSX.Element {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const data: DataFetch[] = await (
-    await fetch('https://johnanon-blog-cms.herokuapp.com/categories')
-  ).json();
+  const data = getCategories();
   const paths = data.map(category => {
     return {
-      params: { planet: category.name },
+      params: { planet: category },
     };
   });
 
@@ -33,14 +42,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async context => {
-  const data: DataFetch[] = await (
-    await fetch(
-      `https://johnanon-blog-cms.herokuapp.com/categories?_where[name]=${context.params.planet}`,
-    )
-  ).json();
-  const { posts } = data[0];
+  const data = getPostsByCategorie(context.params.planet);
 
   return {
-    props: { posts },
+    props: { posts: data },
   };
 };
