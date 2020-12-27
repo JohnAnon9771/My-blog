@@ -32,11 +32,6 @@ export function getCategories(): string[] {
   return fs.readdirSync(postsDirectory).map(folder => folder);
 }
 
-interface DataPosts {
-  title: string;
-  description: string;
-}
-
 export function getAllPosts() {
   const data = constantsPlanet.map(planet => {
     let dataPosts: { [key: string]: string };

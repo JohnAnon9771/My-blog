@@ -6,7 +6,17 @@ import { getCategories, getPostsByCategorie } from '@lib/api';
 
 import Layout from '@components/Layouts/Categorie';
 
-export default function Posts({ posts }): JSX.Element {
+interface Props {
+  posts: {
+    data: {
+      title: string;
+      description: string;
+    };
+    content: string;
+  }[];
+}
+
+export default function Posts({ posts }: Props): JSX.Element {
   const { asPath } = useRouter();
   return (
     <Layout>
@@ -28,8 +38,8 @@ export default function Posts({ posts }): JSX.Element {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const data = getCategories();
-  const paths = data.map(category => {
+  const categories = getCategories();
+  const paths = categories.map(category => {
     return {
       params: { planet: category },
     };
@@ -43,7 +53,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async context => {
   const data = getPostsByCategorie(context.params.planet);
-
   return {
     props: { posts: data },
   };

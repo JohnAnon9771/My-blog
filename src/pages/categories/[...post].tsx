@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 
-import { getAllPosts } from '@lib/api';
+import { getAllPosts, getCategories } from '@lib/api';
 
 export default function Post(): JSX.Element {
   return (
@@ -12,16 +12,10 @@ export default function Post(): JSX.Element {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const data = getAllPosts();
-  const paths = data.map(post => {
-    return {
-      params: { post: post?.title || '' },
-    };
-  });
-
+  const paths = [{ params: { post: ['a', 'b'] } }];
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 };
 
