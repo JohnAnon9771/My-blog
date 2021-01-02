@@ -4,7 +4,7 @@ import { join } from 'path';
 
 import constantsPlanet from '../constants/planets';
 
-const postsDirectory = join(process.cwd(), 'src/posts');
+const postsDirectory = join(process.cwd(), 'src/pages/posts');
 
 interface Data {
   data: {
@@ -13,7 +13,7 @@ interface Data {
   content: string;
 }
 
-export function getPostsByCategorie(categorie: string | string[]): Data[] {
+export function getAllPostsPerCategory(categorie: string | string[]): Data[] {
   const categoriePath = join(postsDirectory, categorie as string);
 
   const posts = fs.readdirSync(categoriePath).map(post => {
@@ -29,10 +29,17 @@ export function getPostsByCategorie(categorie: string | string[]): Data[] {
 }
 
 export function getCategories(): string[] {
-  return fs.readdirSync(postsDirectory).map(folder => folder);
+  const paths: string[] = [];
+  fs.readdirSync(postsDirectory).forEach(folder => {
+    const validPaths = /^[^.]+$|\.(?!(tsx)$)([^.]+$)/;
+    if (validPaths.test(folder)) {
+      paths.push(folder);
+    }
+  });
+  return paths;
 }
 
-export function getAllPosts() {
+export function getAllPosts(): unknown[] {
   const data = constantsPlanet.map(planet => {
     let dataPosts: { [key: string]: string };
     const categoriePath = join(postsDirectory, planet.categorie);
