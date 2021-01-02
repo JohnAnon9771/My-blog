@@ -17,13 +17,13 @@ interface Props {
 }
 
 export default function Posts({ posts }: Props): JSX.Element {
-  const { asPath } = useRouter();
+  const { query } = useRouter();
   return (
     <LayoutCategorie>
       <main>
         {posts.map(post => (
           <Link
-            href={`${asPath}/${encodeURIComponent(post.data.title)}`}
+            href={`${query.category}/${post.data.title}`}
             key={post.data.title}
           >
             <a>
