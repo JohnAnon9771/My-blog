@@ -2,9 +2,9 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { getCategories, getPostsByCategorie } from '@lib/api';
+import { getAllPostsPerCategory, getCategories } from '@lib/api.ts';
 
-import Layout from '@components/Layouts/Categorie';
+import LayoutCategorie from '@components/Layouts/Categorie';
 
 interface Props {
   posts: {
@@ -19,11 +19,11 @@ interface Props {
 export default function Posts({ posts }: Props): JSX.Element {
   const { asPath } = useRouter();
   return (
-    <Layout>
+    <LayoutCategorie>
       <main>
         {posts.map(post => (
           <Link
-            href={`${asPath}/posts/${post.data.title}`}
+            href={`${asPath}/${encodeURIComponent(post.data.title)}`}
             key={post.data.title}
           >
             <a>
@@ -33,7 +33,7 @@ export default function Posts({ posts }: Props): JSX.Element {
           </Link>
         ))}
       </main>
-    </Layout>
+    </LayoutCategorie>
   );
 }
 
@@ -41,7 +41,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const categories = getCategories();
   const paths = categories.map(category => {
     return {
-      params: { planet: category },
+      params: { category },
     };
   });
 
@@ -51,8 +51,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async context => {
-  const data = getPostsByCategorie(context.params.planet);
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const data = getAllPostsPerCategory(params.category);
   return {
     props: { posts: data },
   };

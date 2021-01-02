@@ -1,6 +1,20 @@
-// const withMDX = require('@next/mdx')();
+const withMDX = require('@next/mdx')({
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+  extension: /\.mdx?$/,
+});
 
-module.exports = {
-  reactStrictMode: true,
-  // pageExtensions: ['ts', 'tsx', 'mdx'],
-};
+const { PHASE_DEVELOPMENT_SERVER } = require('next/constants');
+
+function isDevelopment(phase) {
+  if (phase === PHASE_DEVELOPMENT_SERVER) {
+    return withMDX({
+      reactStrictMode: true,
+      pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
+    });
+  }
+}
+
+module.exports = phase => isDevelopment(phase);
