@@ -21,7 +21,7 @@ export function getAllPostsPerCategory(categorie: string | string[]): Data[] {
     const fileContents = fs.readFileSync(fullPath, 'utf-8');
 
     const { data, content } = matter(fileContents);
-
+    console.log(data, content);
     return { data, content };
   });
 

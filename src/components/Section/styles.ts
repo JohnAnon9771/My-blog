@@ -35,12 +35,24 @@ export const HeaderWrapper = styled.div`
 `;
 
 export const Content = styled.div`
+  main {
+    width: 100%;
+    height: 1000px;
+    max-width: 1100px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-top: 64px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
   &.content-header {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 
-    background-color: red;
     position: absolute;
 
     bottom: 0;

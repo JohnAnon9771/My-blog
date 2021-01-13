@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 import { getAllPostsPerCategory, getCategories } from '@lib/api.ts';
 
-import LayoutCategorie from '@components/Layouts/Categorie';
+import PostLayout from '@components/Layouts/Post';
 
 interface Props {
   posts: {
@@ -19,7 +19,7 @@ interface Props {
 export default function Posts({ posts }: Props): JSX.Element {
   const { query } = useRouter();
   return (
-    <LayoutCategorie>
+    <PostLayout>
       <main>
         {posts.map(post => (
           <Link
@@ -33,7 +33,7 @@ export default function Posts({ posts }: Props): JSX.Element {
           </Link>
         ))}
       </main>
-    </LayoutCategorie>
+    </PostLayout>
   );
 }
 

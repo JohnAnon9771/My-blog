@@ -14,6 +14,10 @@ function isDevelopment(phase) {
       reactStrictMode: true,
       pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
     });
+  } else {
+    return withMDX({
+      pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
+    });
   }
 }
 
