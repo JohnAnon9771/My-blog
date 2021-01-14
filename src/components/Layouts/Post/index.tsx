@@ -21,7 +21,6 @@ export default function PostLayout({ children }: Props): JSX.Element {
         <title>{meta.title}</title>
       </Head> */}
       <Wrapper>
-        <Section className="header"></Section>
         <Section>{children}</Section>
       </Wrapper>
     </>

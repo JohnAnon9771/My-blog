@@ -15,29 +15,34 @@ export const Container = styled.div`
 export const HeaderWrapper = styled.div`
   position: absolute;
 
+  -webkit-clip-path: inset(0px);
+  clip-path: inset(0px);
+
+  pointer-events: none;
+
   top: 0;
-  left: 0;
   right: 0;
+  left: 0;
   bottom: 0;
 
-  clip: rect(auto, auto, auto, auto);
-
   .container {
+    position: fixed;
+
     background-color: var(--bg-color);
     z-index: 5;
     padding-bottom: 50px;
 
-    position: fixed;
+    pointer-events: auto;
+
     top: 0;
-    left: 0;
     right: 0;
+    left: 0;
   }
 `;
 
 export const Content = styled.div`
   main {
     width: 100%;
-    height: 1000px;
     max-width: 1100px;
 
     margin-left: auto;
@@ -50,15 +55,10 @@ export const Content = styled.div`
 
   &.content-header {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: flex-end;
 
-    position: absolute;
-
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
+    /* background: red;
 
     width: 100%;
     max-width: 1100px;
@@ -68,6 +68,6 @@ export const Content = styled.div`
 
     padding-top: 64px;
     padding-left: 32px;
-    padding-right: 32px;
+    padding-right: 32px; */
   }
 `;
