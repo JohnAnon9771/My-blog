@@ -52,6 +52,7 @@ export default class MyDocument extends Document {
         </Head>
         <body>
           <ScriptHydrationTheme />
+          <div id="nav-mobile-portal" />
           <Main />
           <NextScript />
         </body>

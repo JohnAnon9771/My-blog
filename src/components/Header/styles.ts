@@ -21,7 +21,7 @@ export const Container = styled.div`
   top: 0px;
   z-index: 2;
 
-  .header-right {
+  .header-left {
     display: flex;
     align-items: baseline;
 
@@ -31,7 +31,7 @@ export const Container = styled.div`
     }
 
     nav {
-      display: flex;
+      display: var(--display-fl-screen);
 
       ul {
         display: flex;
@@ -66,7 +66,11 @@ export const Container = styled.div`
     }
   }
 
-  .header-left {
+  .header-right {
+    @media only screen and (max-width: 690px) {
+      display: none;
+    }
+
     a {
       margin-left: 2rem;
     }

@@ -7,3 +7,4 @@ export {
   default as ThemeProvider,
   ThemeContext,
 } from '@components/ThemeProvider';
+export { default as NavMobilePortal } from '@components/NavMobilePortal';

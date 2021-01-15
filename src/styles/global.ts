@@ -40,4 +40,12 @@ export default createGlobalStyle`
   button {
     cursor: pointer;
   }
+
+  :root {
+    --display-fl-screen: flex;
+
+    @media (max-width: 690px) {
+      --display-fl-screen: none;
+    }
+  }
 `;

@@ -8,7 +8,7 @@ import { Container } from './styles';
 export default function Header(): JSX.Element {
   return (
     <Container>
-      <div className="header-right">
+      <div className="header-left">
         <Link href="/">
           <a>
             <div className="brand">
@@ -32,7 +32,7 @@ export default function Header(): JSX.Element {
           </ul>
         </nav>
       </div>
-      <div className="header-left">
+      <div className="header-right">
         <ButtonDarkMode />
 
         <a href="https://github.com/JohnAnon9771">
