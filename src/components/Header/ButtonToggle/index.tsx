@@ -1,12 +1,17 @@
-import { AiOutlineMenu } from 'react-icons/ai';
+import { Button } from './styles';
 
 interface Props {
   IsOpen: () => void;
+  className?: string;
 }
 
-export default function ButtonToggle({ IsOpen }: Props): JSX.Element {
+export default function ButtonToggle({
+  IsOpen,
+  className,
+}: Props): JSX.Element {
   return (
-    <AiOutlineMenu
+    <Button
+      className={className}
       size={22}
       color="var(--color-text-variant)"
       onClick={() => IsOpen()}

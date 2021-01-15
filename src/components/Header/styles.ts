@@ -76,3 +76,15 @@ export const Container = styled.div`
     }
   }
 `;
+
+export const BoxIcons = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  position: absolute;
+
+  width: 70px;
+
+  bottom: 0;
+  left: 10px;
+`;

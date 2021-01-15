@@ -13,7 +13,6 @@ export default function NavMobilePortal({
   const element = document.getElementById('nav-mobile-portal');
 
   useEffect(() => {
-    console.log('test');
     if (open) {
       element.className = 'on';
     } else {
