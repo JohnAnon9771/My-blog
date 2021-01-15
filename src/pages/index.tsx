@@ -1,6 +1,5 @@
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import { useContext } from 'react';
 
@@ -9,30 +8,11 @@ import { Container, Main, Wrapper } from '@styles/pages/Home';
 
 import { CardPlanet, Masker, ThemeContext } from '@components';
 const Header = dynamic(() => import('@components/Header'), { ssr: false });
-const NavMobilePortal = dynamic(() => import('@components/NavMobilePortal'), {
-  ssr: false,
-});
 
 export default function Home(): JSX.Element {
   const { colorMode } = useContext(ThemeContext);
   return (
     <Wrapper>
-      <NavMobilePortal>
-        <nav>
-          <ul>
-            <li>
-              <Link href="/posts/newest">
-                <a>Recentes</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/about">
-                <a>Sobre</a>
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </NavMobilePortal>
       <Container>
         <div className="spacer" />
         <Header />
