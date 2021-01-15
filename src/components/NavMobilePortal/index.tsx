@@ -19,6 +19,7 @@ export default function NavMobilePortal({
       body[0].style.overflow = 'hidden';
     } else {
       element.removeAttribute('class');
+      body[0].removeAttribute('style');
     }
   }, [body, element, open]);
 
