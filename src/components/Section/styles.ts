@@ -15,39 +15,33 @@ export const Container = styled.div`
 export const HeaderWrapper = styled.div`
   position: absolute;
 
+  -webkit-clip-path: inset(0px);
+  clip-path: inset(0px);
+
+  pointer-events: none;
+
   top: 0;
-  left: 0;
   right: 0;
+  left: 0;
   bottom: 0;
 
-  clip: rect(auto, auto, auto, auto);
-
   .container {
+    position: fixed;
+
     background-color: var(--bg-color);
     z-index: 5;
     padding-bottom: 50px;
 
-    position: fixed;
+    pointer-events: auto;
+
     top: 0;
-    left: 0;
     right: 0;
+    left: 0;
   }
 `;
 
 export const Content = styled.div`
-  &.content-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-
-    background-color: red;
-    position: absolute;
-
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-
+  main {
     width: 100%;
     max-width: 1100px;
 
@@ -57,5 +51,23 @@ export const Content = styled.div`
     padding-top: 64px;
     padding-left: 32px;
     padding-right: 32px;
+  }
+
+  &.content-header {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: flex-end;
+
+    /* background: red;
+
+    width: 100%;
+    max-width: 1100px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-top: 64px;
+    padding-left: 32px;
+    padding-right: 32px; */
   }
 `;

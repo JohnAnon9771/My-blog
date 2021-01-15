@@ -10,7 +10,10 @@ interface Props {
   children?: ReactNode;
 }
 
-export default function Section({ className, children }: Props): JSX.Element {
+export default function Section({
+  className = 'main',
+  children,
+}: Props): JSX.Element {
   return (
     <Container className={className}>
       <HeaderWrapper>

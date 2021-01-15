@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 import { getAllPostsPerCategory, getCategories } from '@lib/api.ts';
 
-import LayoutCategorie from '@components/Layouts/Categorie';
+import CategoryLayout from '@components/Layouts/Category';
 
 interface Props {
   posts: {
@@ -19,21 +19,19 @@ interface Props {
 export default function Posts({ posts }: Props): JSX.Element {
   const { query } = useRouter();
   return (
-    <LayoutCategorie>
-      <main>
-        {posts.map(post => (
-          <Link
-            href={`${query.category}/${post.data.title}`}
-            key={post.data.title}
-          >
-            <a>
-              <h3>{post.data.title}</h3>
-              <p>{post.data.description}</p>
-            </a>
-          </Link>
-        ))}
-      </main>
-    </LayoutCategorie>
+    <CategoryLayout>
+      {posts.map(post => (
+        <Link
+          href={`${query.category}/${post.data.title}`}
+          key={post.data.title}
+        >
+          <a>
+            <h3>{post.data.title}</h3>
+            <p>{post.data.description}</p>
+          </a>
+        </Link>
+      ))}
+    </CategoryLayout>
   );
 }
 
