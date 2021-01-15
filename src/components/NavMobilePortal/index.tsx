@@ -11,14 +11,16 @@ export default function NavMobilePortal({
   open,
 }: Props): JSX.Element {
   const element = document.getElementById('nav-mobile-portal');
+  const body = document.getElementsByTagName('body');
 
   useEffect(() => {
     if (open) {
       element.className = 'on';
+      body[0].style.overflow = 'hidden';
     } else {
       element.removeAttribute('class');
     }
-  }, [element, open]);
+  }, [body, element, open]);
 
   return ReactDOM.createPortal(children, element);
 }
