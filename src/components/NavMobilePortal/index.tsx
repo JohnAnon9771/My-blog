@@ -11,15 +11,15 @@ export default function NavMobilePortal({
   open,
 }: Props): JSX.Element {
   const element = document.getElementById('nav-mobile-portal');
-  const body = document.getElementsByTagName('body');
+  const body = document.querySelector('body');
 
   useEffect(() => {
     if (open) {
       element.className = 'on';
-      body[0].style.overflow = 'hidden';
+      body.style.overflow = 'hidden';
     } else {
       element.removeAttribute('class');
-      body[0].removeAttribute('style');
+      body.removeAttribute('style');
     }
   }, [body, element, open]);
 
