@@ -67,7 +67,7 @@ export const Container = styled.div`
   }
 
   .header-right {
-    @media only screen and (max-width: 690px) {
+    @media only screen and (max-width: 522px) {
       display: none;
     }
 

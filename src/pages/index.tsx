@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { useContext } from 'react';
 
@@ -17,9 +18,20 @@ export default function Home(): JSX.Element {
   return (
     <Wrapper>
       <NavMobilePortal>
-        <div>
-          <h1>test</h1>
-        </div>
+        <nav>
+          <ul>
+            <li>
+              <Link href="/posts/newest">
+                <a>Recentes</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/about">
+                <a>Sobre</a>
+              </Link>
+            </li>
+          </ul>
+        </nav>
       </NavMobilePortal>
       <Container>
         <div className="spacer" />

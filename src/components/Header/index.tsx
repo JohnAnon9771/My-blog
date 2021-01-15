@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { AiFillGithub } from 'react-icons/ai';
 
 import ButtonDarkMode from './ButtonDarkMode';
+import ButtonToggle from './ButtonToggle';
 import { Container } from './styles';
 
 export default function Header(): JSX.Element {
@@ -34,6 +35,7 @@ export default function Header(): JSX.Element {
       </div>
       <div className="header-right">
         <ButtonDarkMode />
+        <ButtonToggle />
 
         <a href="https://github.com/JohnAnon9771">
           <AiFillGithub size={22} color="var(--color-text-variant)" />

@@ -27,6 +27,24 @@ export default createGlobalStyle`
       background-color: var(--color-text-primary);
       border-radius: 1rem;
     }
+
+    #nav-mobile-portal {
+      display: none;
+
+      &.on {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      position: absolute;
+      z-index: 10;
+
+      height: 100vh;
+      width: 100vw;
+
+      background-color: var(--color-primary);
+      }
+    }
   }
 
   input, button, textarea {
@@ -44,7 +62,7 @@ export default createGlobalStyle`
   :root {
     --display-fl-screen: flex;
 
-    @media (max-width: 690px) {
+    @media (max-width: 522px) {
       --display-fl-screen: none;
     }
   }
