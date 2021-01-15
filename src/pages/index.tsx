@@ -8,19 +8,11 @@ import { Container, Main, Wrapper } from '@styles/pages/Home';
 
 import { CardPlanet, Masker, ThemeContext } from '@components';
 const Header = dynamic(() => import('@components/Header'), { ssr: false });
-const NavMobilePortal = dynamic(() => import('@components/NavMobilePortal'), {
-  ssr: false,
-});
 
 export default function Home(): JSX.Element {
   const { colorMode } = useContext(ThemeContext);
   return (
     <Wrapper>
-      <NavMobilePortal>
-        <div>
-          <h1>test</h1>
-        </div>
-      </NavMobilePortal>
       <Container>
         <div className="spacer" />
         <Header />

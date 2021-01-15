@@ -67,7 +67,7 @@ export const Container = styled.div`
   }
 
   .header-right {
-    @media only screen and (max-width: 690px) {
+    @media only screen and (max-width: 522px) {
       display: none;
     }
 
@@ -75,4 +75,16 @@ export const Container = styled.div`
       margin-left: 2rem;
     }
   }
+`;
+
+export const BoxIcons = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  position: absolute;
+
+  width: 70px;
+
+  bottom: 0;
+  left: 10px;
 `;

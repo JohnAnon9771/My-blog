@@ -27,6 +27,45 @@ export default createGlobalStyle`
       background-color: var(--color-text-primary);
       border-radius: 1rem;
     }
+
+    #nav-mobile-portal {
+      display: none;
+
+      &.on {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        position: absolute;
+        z-index: 10;
+
+        height: 100vh;
+        width: 100vw;
+
+        background-color: var(--color-primary);
+        opacity: 0.9;
+
+        nav {
+          ul {
+            list-style: none;
+            position: absolute;
+            left: 65px;
+
+            li {
+              margin: 22px;
+
+              a {
+                color: var(--color-text-variant);
+                font-size: 1rem;
+                font-weight: 600;
+
+                text-decoration: none;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   input, button, textarea {
@@ -44,7 +83,7 @@ export default createGlobalStyle`
   :root {
     --display-fl-screen: flex;
 
-    @media (max-width: 690px) {
+    @media (max-width: 522px) {
       --display-fl-screen: none;
     }
   }
