@@ -1,3 +1,4 @@
+const withPlugins = require('next-compose-plugins');
 const withMDX = require('@next/mdx')({
   options: {
     remarkPlugins: [],
@@ -5,6 +6,7 @@ const withMDX = require('@next/mdx')({
   },
   extension: /\.mdx?$/,
 });
+const withPWA = require('next-pwa');
 
 const { PHASE_DEVELOPMENT_SERVER } = require('next/constants');
 
@@ -21,4 +23,14 @@ function isDevelopment(phase) {
   }
 }
 
-module.exports = phase => isDevelopment(phase);
+module.exports = withPlugins([
+  withPWA({
+    pwa: {
+      dest: 'public',
+    },
+  }),
+  withMDX({
+    reactStrictMode: true,
+    pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
+  }),
+]);

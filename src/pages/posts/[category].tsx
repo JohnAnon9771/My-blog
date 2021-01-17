@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -19,19 +20,24 @@ interface Props {
 export default function Posts({ posts }: Props): JSX.Element {
   const { query } = useRouter();
   return (
-    <CategoryLayout>
-      {posts.map(post => (
-        <Link
-          href={`${query.category}/${post.data.title}`}
-          key={post.data.title}
-        >
-          <a>
-            <h3>{post.data.title}</h3>
-            <p>{post.data.description}</p>
-          </a>
-        </Link>
-      ))}
-    </CategoryLayout>
+    <>
+      <Head>
+        <title>Posts | {query.category}</title>
+      </Head>
+      <CategoryLayout>
+        {posts.map(post => (
+          <Link
+            href={`${query.category}/${post.data.title}`}
+            key={post.data.title}
+          >
+            <a>
+              <h3>{post.data.title}</h3>
+              <p>{post.data.description}</p>
+            </a>
+          </Link>
+        ))}
+      </CategoryLayout>
+    </>
   );
 }
 

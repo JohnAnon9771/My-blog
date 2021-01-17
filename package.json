@@ -12,6 +12,8 @@
     "@next/mdx": "^10.0.5",
     "gray-matter": "^4.0.2",
     "next": "10.0.2",
+    "next-compose-plugins": "^2.2.1",
+    "next-pwa": "^5.0.4",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-icons": "^3.11.0",
