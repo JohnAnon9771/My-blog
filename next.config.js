@@ -7,6 +7,7 @@ const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
 });
 const withPWA = require('next-pwa');
+const runtimeCaching = require('next-pwa/cache');
 
 const { PHASE_DEVELOPMENT_SERVER } = require('next/constants');
 
@@ -27,6 +28,7 @@ module.exports = withPlugins([
   withPWA({
     pwa: {
       dest: 'public',
+      runtimeCaching,
     },
   }),
   withMDX({

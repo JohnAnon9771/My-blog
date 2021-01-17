@@ -1,6 +1,13 @@
 {
   "name": "JohnAnon9771 Blog",
   "short_name": "John Blog",
+  "theme_color": "#A9CEF4",
+  "background_color": "#A9CEF4",
+  "scope": "/",
+  "start_url": "/",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "splash_pages": null,
   "icons": [
     {
       "src": "/static/icons/android-chrome-192x192.png",
@@ -17,10 +24,5 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "theme_color": "#A9CEF4",
-  "background_color": "#A9CEF4",
-  "start_url": "/",
-  "display": "standalone",
-  "orientation": "portrait"
+  ]
 }

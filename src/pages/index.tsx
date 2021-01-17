@@ -24,7 +24,11 @@ export default function Home(): JSX.Element {
           <Masker />
           <div className="nave_img">
             <Image
-              src={colorMode === 'dark' ? '/rocket.svg' : '/spaceman.svg'}
+              src={
+                colorMode === 'dark'
+                  ? '/images/rocket.svg'
+                  : '/images/spaceman.svg'
+              }
               height="250px"
               width="250px"
               alt="Image for apresentation"

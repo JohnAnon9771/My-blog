@@ -58,7 +58,7 @@ export default class MyDocument extends Document {
           <meta name="apple-mobile-web-app-title" content="JohnAnon9771 Blog" />
           <meta
             name="description"
-            content="Best JohnAnon9771 Blog in the world"
+            content="Best blog about tecnologie in the world"
           />
           <meta name="format-detection" content="telephone=no" />
           <meta name="mobile-web-app-capable" content="yes" />
@@ -94,10 +94,10 @@ export default class MyDocument extends Document {
             color="#5bbad5"
           />
           <link rel="shortcut icon" href="/static/icons/favicon.ico" />
-          <link
+          {/* <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
-          />
+          /> */}
 
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:url" content="https://johonanon.vercel.app" />
