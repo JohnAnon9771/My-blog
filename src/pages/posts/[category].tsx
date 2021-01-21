@@ -1,5 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+
 import Image from 'next/image';
+
+import Head from 'next/head';
+
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -26,25 +30,30 @@ export default function Posts({ posts }: Props): JSX.Element {
   const image = checkImagePost(query.category, constantsPlanet);
 
   return (
-    <CategoryLayout>
-      <section className="section">
-        <Image src={image} width="300px" height="300px" />
-        <h1>{capitalize(query.category)}</h1>
-      </section>
-      <div className="links">
-        {posts.map(post => (
-          <Link
-            href={`${query.category}/${post.data.title}`}
-            key={post.data.title}
-          >
-            <a>
-              <h3>{post.data.title}</h3>
-              <p>{post.data.description}</p>
-            </a>
-          </Link>
-        ))}
-      </div>
-    </CategoryLayout>
+    <>
+      <Head>
+        <title>Posts | {query.category}</title>
+      </Head>
+      <CategoryLayout>
+        <section className="section">
+          <Image src={image} width="300px" height="300px" />
+          <h1>{capitalize(query.category)}</h1>
+        </section>
+        <div className="links">
+          {posts.map(post => (
+            <Link
+              href={`${query.category}/${post.data.title}`}
+              key={post.data.title}
+            >
+              <a>
+                <h3>{post.data.title}</h3>
+                <p>{post.data.description}</p>
+              </a>
+            </Link>
+          ))}
+        </div>
+      </CategoryLayout>
+    </>
   );
 }
 

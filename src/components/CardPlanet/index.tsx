@@ -30,6 +30,7 @@ export default function CardPlanet({
             <Image
               className="img_planet"
               src={image}
+              alt={`${categorie} image`}
               width="56px"
               height="56px"
             />

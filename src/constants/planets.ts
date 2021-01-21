@@ -1,7 +1,7 @@
 export default [
   {
     id: 1,
-    image: '/sun.svg',
+    image: '/images/sun.svg',
     title: 'Sol - HTML, CSS e JavaScript',
     categorie: 'sol',
     description:
@@ -9,7 +9,7 @@ export default [
   },
   {
     id: 2,
-    image: '/earth.svg',
+    image: '/images/earth.svg',
     title: 'Terra - React e ecossistema',
     categorie: 'terra',
     description:
@@ -17,15 +17,15 @@ export default [
   },
   {
     id: 3,
-    image: '/moon.svg',
+    image: '/images/moon.svg',
     title: 'Lua - NextJS e derivados',
     categorie: 'lua',
     description:
-      'A lua sempre está envolta da terra, então aqui colocarei tudo que sei sobre coisas que se baseam/utilizam em tecologias da terra. Focando principalmente em NextJS.',
+      'A lua sempre está envolta da terra, então aqui colocarei tudo que sei sobre coisas que se baseam/images/utilizam em tecologias da terra. Focando principalmente em NextJS.',
   },
   {
     id: 4,
-    image: '/uranus.svg',
+    image: '/images/uranus.svg',
     title: 'Urano - NodeJS e backend',
     categorie: 'urano',
     description:
@@ -33,7 +33,7 @@ export default [
   },
   {
     id: 5,
-    image: '/neptune.svg',
+    image: '/images/neptune.svg',
     title: 'Netuno - React Native e ecossistema',
     categorie: 'netuno',
     description:
@@ -41,7 +41,7 @@ export default [
   },
   {
     id: 6,
-    image: '/mars.svg',
+    image: '/images/mars.svg',
     title: 'Marte - Curiosidades',
     categorie: 'marte',
     description:
