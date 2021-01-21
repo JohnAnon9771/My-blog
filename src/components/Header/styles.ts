@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.header`
   position: sticky;
 
   flex: 1 1 0%;
@@ -20,64 +20,9 @@ export const Container = styled.div`
 
   top: 0px;
   z-index: 2;
-
-  .header-left {
-    display: flex;
-    align-items: baseline;
-
-    a {
-      text-decoration: none;
-      color: var(--color-text-primary);
-    }
-
-    nav {
-      display: var(--display-fl-screen);
-
-      ul {
-        display: flex;
-        list-style: none;
-
-        li {
-          a {
-            color: var(--color-text-variant);
-            font-size: 0.875rem;
-            font-weight: 500;
-            margin: 15px;
-            text-decoration: none;
-          }
-        }
-      }
-    }
-
-    .brand {
-      display: flex;
-      justify-content: space-between;
-      letter-spacing: -1px;
-
-      width: 110px;
-
-      padding: 0px;
-      margin-right: 35px;
-
-      font-weight: 600;
-      font-size: 1.5rem;
-      font-family: Roboto, sans-serif;
-      text-decoration: none;
-    }
-  }
-
-  .header-right {
-    @media only screen and (max-width: 522px) {
-      display: none;
-    }
-
-    a {
-      margin-left: 2rem;
-    }
-  }
 `;
 
-export const BoxIcons = styled.div`
+export const HeaderIcons = styled.div`
   display: flex;
   justify-content: space-between;
 
@@ -87,4 +32,56 @@ export const BoxIcons = styled.div`
 
   bottom: 0;
   left: 10px;
+`;
+
+export const HeaderLeft = styled.div`
+  display: flex;
+  align-items: baseline;
+
+  a {
+    text-decoration: none;
+    color: var(--color-text-primary);
+  }
+
+  nav {
+    display: var(--display-fl-screen);
+
+    ul {
+      display: flex;
+      list-style: none;
+
+      li {
+        a {
+          color: var(--color-text-variant);
+          font-size: 0.875rem;
+          font-weight: 500;
+          margin: 15px;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .brand {
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: -1px;
+    width: 110px;
+    padding: 0px;
+    margin-right: 35px;
+    font-weight: 600;
+    font-size: 1.5rem;
+    font-family: Roboto, sans-serif;
+    text-decoration: none;
+  }
+`;
+
+export const HeaderRight = styled.div`
+  @media only screen and (max-width: 522px) {
+    display: none;
+  }
+
+  a {
+    margin-left: 2rem;
+  }
 `;

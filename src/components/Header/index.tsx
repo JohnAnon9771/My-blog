@@ -6,7 +6,7 @@ import { AiFillGithub } from 'react-icons/ai';
 
 import ButtonDarkMode from './ButtonDarkMode';
 import ButtonToggle from './ButtonToggle';
-import { Container, BoxIcons } from './styles';
+import * as S from './styles';
 
 const NavMobilePortal = dynamic(() => import('@components/NavMobilePortal'), {
   ssr: false,
@@ -16,8 +16,8 @@ export default function Header(): JSX.Element {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Container>
-      <div className="header-left">
+    <S.Container>
+      <S.HeaderLeft>
         <Link href="/">
           <a>
             <div className="brand">
@@ -40,7 +40,7 @@ export default function Header(): JSX.Element {
             </li>
           </ul>
         </nav>
-      </div>
+      </S.HeaderLeft>
       <ButtonToggle
         className="menu-toggle"
         IsOpen={() => setIsOpen(state => !state)}
@@ -64,19 +64,19 @@ export default function Header(): JSX.Element {
             </li>
           </ul>
         </nav>
-        <BoxIcons>
+        <S.HeaderIcons>
           <ButtonDarkMode />
           <a href="https://github.com/JohnAnon9771">
             <AiFillGithub size={22} color="var(--color-text-variant)" />
           </a>
-        </BoxIcons>
+        </S.HeaderIcons>
       </NavMobilePortal>
-      <div className="header-right">
+      <S.HeaderRight>
         <ButtonDarkMode />
         <a href="https://github.com/JohnAnon9771">
           <AiFillGithub size={22} color="var(--color-text-variant)" />
         </a>
-      </div>
-    </Container>
+      </S.HeaderRight>
+    </S.Container>
   );
 }
