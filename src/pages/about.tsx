@@ -1,15 +1,16 @@
+import dynamic from 'next/dynamic';
+
 import { Wrapper } from '@styles/pages/About';
 
-import { Section } from '@components';
+const Header = dynamic(() => import('@components/Header'), { ssr: false });
 
 export default function About(): JSX.Element {
   return (
     <Wrapper>
-      <Section>
-        <main>
-          <h1>João Alves</h1>
-        </main>
-      </Section>
+      <Header />
+      <main>
+        <h1>João Alves</h1>
+      </main>
     </Wrapper>
   );
 }
