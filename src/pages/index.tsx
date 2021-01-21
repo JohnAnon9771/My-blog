@@ -11,6 +11,7 @@ const Header = dynamic(() => import('@components/Header'), { ssr: false });
 
 export default function Home(): JSX.Element {
   const { colorMode } = useContext(ThemeContext);
+
   return (
     <Wrapper>
       <Container>

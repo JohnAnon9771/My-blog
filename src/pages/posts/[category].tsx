@@ -5,7 +5,8 @@ import { useRouter } from 'next/router';
 
 import constantsPlanet from '@constants/planets';
 import { getAllPostsPerCategory, getCategories } from '@lib/api.ts';
-import { checkImagePost } from '@lib/checkImagePost';
+import { capitalize } from '@utils/capitalize';
+import { checkImagePost } from '@utils/checkImagePost';
 
 import CategoryLayout from '@components/Layouts/Category';
 
@@ -21,25 +22,28 @@ interface Props {
 
 export default function Posts({ posts }: Props): JSX.Element {
   const { query } = useRouter();
+
   const image = checkImagePost(query.category, constantsPlanet);
 
   return (
     <CategoryLayout>
       <section className="section">
         <Image src={image} width="300px" height="300px" />
-        <h1>{query.category}</h1>
+        <h1>{capitalize(query.category)}</h1>
       </section>
-      {posts.map(post => (
-        <Link
-          href={`${query.category}/${post.data.title}`}
-          key={post.data.title}
-        >
-          <a>
-            <h3>{post.data.title}</h3>
-            <p>{post.data.description}</p>
-          </a>
-        </Link>
-      ))}
+      <div className="links">
+        {posts.map(post => (
+          <Link
+            href={`${query.category}/${post.data.title}`}
+            key={post.data.title}
+          >
+            <a>
+              <h3>{post.data.title}</h3>
+              <p>{post.data.description}</p>
+            </a>
+          </Link>
+        ))}
+      </div>
     </CategoryLayout>
   );
 }

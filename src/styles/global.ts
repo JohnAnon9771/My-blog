@@ -1,13 +1,18 @@
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
-  *, ::before, ::after {
+  *, *::before, *::after {
     margin: 0;
     padding: 0;
     outline: 0;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
+  }
+
+  html, body {
+    height: 100%;
+    width: 100%;
   }
 
   body {
@@ -81,6 +86,8 @@ export default createGlobalStyle`
   }
 
   :root {
+    font-size: 16px;
+
     --display-fl-screen: flex;
 
     @media (max-width: 522px) {
