@@ -1,8 +1,10 @@
+import dynamic from 'next/dynamic';
+
 import { ReactNode } from 'react';
 
-import Section from '@components/Section';
-
 import { Container } from './styles';
+
+const Header = dynamic(() => import('@components/Header'), { ssr: false });
 
 interface Props {
   children: ReactNode;
@@ -11,12 +13,8 @@ interface Props {
 export default function CategoryLayout({ children }: Props): JSX.Element {
   return (
     <Container>
-      <Section className="header">
-        <h1>Lua</h1>
-      </Section>
-      <Section>
-        <main>{children}</main>
-      </Section>
+      <Header />
+      <main>{children}</main>
     </Container>
   );
 }

@@ -5,7 +5,7 @@ export const Container = styled.div`
 
   main {
     width: 100%;
-    height: 1000px;
+    height: 100%;
     max-width: 1100px;
 
     margin-left: auto;
@@ -14,5 +14,13 @@ export const Container = styled.div`
     padding-top: 64px;
     padding-left: 32px;
     padding-right: 32px;
+
+    .section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 30vh;
+    }
   }
 `;

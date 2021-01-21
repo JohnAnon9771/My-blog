@@ -1,8 +1,7 @@
-import Head from 'next/head';
+import dynamic from 'next/dynamic';
 
 import { ReactNode } from 'react';
-
-import { Section } from '@components';
+const Header = dynamic(() => import('@components/Header'), { ssr: false });
 
 import { Wrapper } from './styles';
 
@@ -16,13 +15,9 @@ interface Props {
 
 export default function PostLayout({ children }: Props): JSX.Element {
   return (
-    <>
-      {/* <Head>
-        <title>{meta.title}</title>
-      </Head> */}
-      <Wrapper>
-        <Section>{children}</Section>
-      </Wrapper>
-    </>
+    <Wrapper>
+      <Header />
+      <main>{children}</main>
+    </Wrapper>
   );
 }
