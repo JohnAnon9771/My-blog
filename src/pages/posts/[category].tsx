@@ -1,16 +1,12 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-
-import Image from 'next/image';
-
 import Head from 'next/head';
-
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import constantsPlanet from '@constants/planets';
 import { getAllPostsPerCategory, getCategories } from '@lib/api.ts';
-import { capitalize } from '@utils/capitalize';
-import { checkImagePost } from '@utils/checkImagePost';
+import { capitalize, checkImagePost } from '@utils';
 
 import CategoryLayout from '@components/Layouts/Category';
 
@@ -73,6 +69,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const data = getAllPostsPerCategory(params.category);
+
   return {
     props: { posts: data },
   };
